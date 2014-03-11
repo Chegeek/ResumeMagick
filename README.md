@@ -1,19 +1,6 @@
 ResumeMagick
 ============
 
-This script will help you to generate an awesome RESUME.
-
-TODO:
-
-1. Tag on the fisrt part. (在第一部分时间轴的地方加上点状时间的支持)
-2. Support on yaml config file. (Move every thing to these files)
-
-## Demo 范例
-
-### White Version 白色的版本
- 
-![cv_black_demo](./demo/CV_White.jpg)
-
 ## 简介
 
 此脚本可以用来生成一个漂亮的简历。
@@ -30,5 +17,19 @@ TODO:
  
 -   ImageMagick
 -   RMagick
+
+## Demo 范例
+
+### White Version 白色的版本
+ 
+![cv_white_demo](./demo/CV_White.jpg)
+
+### Black Version 黑色的版本
+
+![cv_white_demo](./demo/CV.jpg)
+
+## TODO:
+
+1.   Support on yaml config file. (Move every thing to these files)
 
 
