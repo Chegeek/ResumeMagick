@@ -1,0 +1,6 @@
+fonts:
+  - "fonts/Bauhaus.ttc" 
+  - "fonts/Hira_W3_zh.otf"
+  - "fonts/Hira_W6_zh.otf"
+  # - "fonts/Hira_W3_zh.otf" # If you plan to print this resume, uncomment this because this font is more friendly to printer.
+  - "fonts/Yapi_zh.otf"

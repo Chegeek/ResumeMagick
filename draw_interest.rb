@@ -1,4 +1,5 @@
 require 'RMagick'
+require "YAML"
 
 include Magick
 
@@ -6,7 +7,6 @@ include Magick
 
 $MARGIN = [130,130,130,130] #LEFT, TOP, RIGHT, BOTTOM
 $BORN_YEAR = 1992
-
 
 $Titles = ["生活轨迹", "技能", "介绍"] 
 #TODO:$Titles = read_title("data.csv")
@@ -54,30 +54,8 @@ def decide_color(event)
     end
 end
 
-
-events = []
-events << Event.new("百词斩", 4.5, 5, 1, 2)
-events << Event.new("百词斩", 5.8, 6.3, 1, 2)
-events << Event.new("盐科技", 6.5, 8, 3, 2)
-events << Event.new("创立哈尔滨工业大学思飞科幻社", 1, 4, 3, 2)
-
-events << Event.new("一等人民奖学金", 0, 1, 2, 1)
-events << Event.new("二等人民奖学金", 1, 4, 3, 1)
-events << Event.new("交流生奖学金", 5, 5.8, 2, 1)
-
-events << Event.new("国立交通大学", 5,5.8 , 3, 3)
-events << Event.new("哈尔滨工业大学：电子与信息工程学院", 0, 4.7, 5, 3)
-events << Event.new("哈尔滨工业大学", 6.3, 8, 5, 3)
-
-events << Event.new("接触C语言", 1, 2, 2, 4)
-events << Event.new("Linux系统，Python，Ruby语言，Ruby on Rails框架", 4, 8, 4, 4)
-
-events << Event.new("微计机原理：C & Assembly", 2, 4, 3, 5)
-events << Event.new("FPGA、ARM", 6, 7, 2, 5)
-
-events << Event.new("基于Zigbee的智能家居安防系统", 2, 4, 2, 6)
-events << Event.new("图像水印", 5, 5.8, 1, 6)
-events << Event.new("毕业设计", 7, 8, 1, 6)
+$config = YAML.load(File.open("config/config.yml").read)
+events = YAML.load(File.open("events.yml").read) 
 
 # events << Event.new("班长", 2, 5, 1, 7)
 
@@ -95,7 +73,7 @@ title.fill('white')
 title.stroke('transparent')
 title.pointsize(30)
 # title.font("BS.ttf") 
-title.font("Yapi_zh.otf") 
+title.font($config["fonts"][3]) 
 title.font_weight("bold")
 title.font_style(ItalicStyle)
 title.text(130,130,$Titles[0])
@@ -128,7 +106,7 @@ lables.pointsize(20)
 #  lables.polyline(xp ,700, xp, 700 - 10 )
 #  if year%2 == 0
 #    lables.annotate(canvas, 0, 0, xp ,700 + 15 , year.to_s) {
-#      self.font = "Bauhaus.ttc"
+#      self.font = $config["fonts"][0]
 #      self.rotation = 45
 #      self.fill = 'white'
 #      self.stroke = 'transparent'
@@ -147,7 +125,7 @@ while semester <= 8 do
   lables.polyline(xp ,700, xp, 700 - 10 )
   if count%4 == 0
     lables.annotate(canvas, 0, 0, xp ,700 + 15 , "#{count/4+2010}.9") {
-      self.font = "Bauhaus.ttc"
+      self.font = $config["fonts"][0]
       self.rotation = 45
       self.fill = '#aaa'
       self.stroke = 'transparent'
@@ -155,7 +133,7 @@ while semester <= 8 do
     }
   elsif count%4 == 2
     lables.annotate(canvas, 0, 0, xp ,700 + 15 , "#{(count+2)/4+2010}.3") {
-      self.font = "Bauhaus.ttc"
+      self.font = $config["fonts"][0]
       self.rotation = 45
       self.fill = '#aaa'
       self.stroke = 'transparent'
@@ -209,7 +187,7 @@ for event in events do
     # Adding text
     draw_events.annotate(canvas, 0, 0, xp+10 , 419+35*event.place , event.name) {
       draw_events.stroke = "none" 
-      draw_events.font = "Yapi_zh.otf" 
+      draw_events.font = $config["fonts"][3] 
       draw_events.fill = "white" 
       draw_events.pointsize = 20 
     }
@@ -220,4 +198,3 @@ draw_events.draw(canvas)
 canvas.write("CV_interest.jpg")
 # exec 'open ./CV_interest.jpg'
 
-events = [Event.new("国立交通大学", 5,6 , 2, 3)]

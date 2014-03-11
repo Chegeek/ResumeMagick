@@ -20,7 +20,7 @@ def draw_text(xp, yp, step, strs, draw, canvas) # xp,yp is X,Y position. draw is
       draw.stroke = 'transparent'
       draw.pointsize = 20
     # self.font = "BS.ttf" 
-      draw.font = "Yapi_zh.otf"  
+      draw.font = $config["fonts"][3]  
     }
   end
   return yp
@@ -40,7 +40,7 @@ title.fill('white')
 title.stroke('transparent')
 title.pointsize(30)
 # title.font("BS.ttf") 
-title.font("Yapi_zh.otf") 
+title.font($config["fonts"][3]) 
 title.font_weight("bold")
 title.font_style(ItalicStyle)
 
@@ -50,7 +50,7 @@ content.fill('white')
 content.stroke('transparent')
 content.pointsize(20)
 # content.font("BS.ttf") 
-content.font("Yapi_zh.otf") 
+content.font($config["fonts"][3]) 
 content.font_weight("bold")
 content.font_style(ItalicStyle)
 
@@ -178,9 +178,9 @@ def draw_banner(xp, yp, str, draw, canvas)
     draw.stroke = 'transparent'
     draw.pointsize = 20
     # draw.font = "BS.ttf"
-    # draw.font = "Yapi_zh.otf"  
+    # draw.font = $config["fonts"][3]  
     # draw.font = "Wawa_zh.otf"
-    self.font = "Hira_W3_zh.otf"
+    self.font = $config["fonts"][1]
   }
 end
 
@@ -190,18 +190,27 @@ banner.stroke_width(1)
 banner.stroke_dasharray(1,3)
 banner.line(1200,2100,1584,2100)
 banner.draw(canvas)
-banner.annotate(canvas,0,0,200,300,"Dongwen Lin, 林东闻") {
+banner.annotate(canvas,0,0,200,300," @野火Taffy") {
     self.fill = '#ddd'
     self.pointsize = 30
     self.gravity = SouthEastGravity
     # self.font = "BS.ttf" 
-    self.font = "Hira_W6_zh.otf"
-    # self.font = "Yapi_zh.otf"  
+    self.font = $config["fonts"][2]
+    # self.font = $config["fonts"][3]  
 }
 
 draw_banner(200,250,"M. +861 8654 327 203", banner, canvas)
 draw_banner(200,220,"E. davidlin@hit.edu.cn & lindw@nctu.edu.cn", banner, canvas)
-draw_banner(200,170,"W. http://www.wildflame.org", banner, canvas)
+draw_banner(200,170,"W. wildflame.org", banner, canvas)
+
+banner.annotate(canvas,0,0,200,125," Twitter@Taffyer, Created by Ruby & ImageMagick") {
+    self.fill = '#ddd'
+    self.pointsize = 15 
+    self.gravity = SouthEastGravity
+    # self.font = "BS.ttf" 
+    self.font = $config["fonts"][0]
+    # self.font = $config["fonts"][3]  
+}
 
 title.draw(canvas)
 content.draw(canvas)
@@ -209,6 +218,6 @@ content.draw(canvas)
 # All in All
 canvas.write("CV.jpg")
 
-inv = canvas[0].negate()
+inv = canvas.negate()
 inv.write('CV_white.jpg')
-exec 'open ./CV_white.jpg'
+exec 'open ./CV.jpg'

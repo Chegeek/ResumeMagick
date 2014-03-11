@@ -1,4 +1,5 @@
 require 'RMagick'
+require 'YAML'
 
 include Magick
 
@@ -22,10 +23,6 @@ def decide_ability_color(ability)
       "#999"
     when 5 then
       "#bbb"
-    when 6 then
-      "sienna"
-    when 7 then
-      "sienna1"
     end
 end
 
@@ -63,7 +60,7 @@ title = Draw.new
 title.fill('white')
 title.stroke('transparent')
 title.pointsize(30)
-title.font("Yapi_zh.otf") 
+title.font($config["fonts"][3]) 
 title.font_weight("bold")
 title.font_style(ItalicStyle)
 title.text(130,880,$Titles[1])
@@ -100,7 +97,7 @@ for ability in abilities
   gc.path("M#{xp},950 l#{size},0 l0,#{size} c#{-0.12*size},#{-0.36*size} #{-0.64*size},#{-0.88*size} #{-size},#{-size}")
 
   gc.annotate(canvas, 0, 0, xp+size  , 940 , "#{5*ability.level}%") {
-    self.font = "Bauhaus.ttc"
+    self.font = $config["fonts"][0]
     self.fill = '#aaa'
     self.stroke = 'transparent'
     self.pointsize = 26 
@@ -111,7 +108,7 @@ for ability in abilities
   gc.stroke_dasharray(4,2)
   gc.line(xp+size,950+size,xp+size+20,950+size+20)
   gc.annotate(canvas, 0, 0, xp+size+25 , 950+size+35 , ability.name) {
-    self.font = "Bauhaus.ttc"
+    self.font = $config["fonts"][0]
     self.fill = '#aaa'
     self.stroke = 'transparent'
     self.pointsize = 18 
@@ -125,5 +122,4 @@ end
 # All in All
 canvas.write("CV_ability.jpg")
 # exec 'open ./CV_ability.jpg'
-
 

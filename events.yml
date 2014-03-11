@@ -1,0 +1,35 @@
+---
+- !ruby/object:Event 
+  {name: 百词斩, start_year: 4.5, end_year: 5, extent: 1, place: 2}
+- !ruby/object:Event 
+  { name: 百词斩, start_year: 5.8, end_year: 6.3, extent: 1, place: 2}
+- !ruby/object:Event 
+  { name: 盐科技, start_year: 6.5, end_year: 8, extent: 3, place: 2}
+- !ruby/object:Event 
+  { name: 创立哈尔滨工业大学思飞科幻社, start_year: 1, end_year: 4, extent: 3, place: 2}
+- !ruby/object:Event 
+  { name: 一等人民奖学金, start_year: 0, end_year: 1, extent: 2, place: 1}
+- !ruby/object:Event 
+  { name: 二等人民奖学金, start_year: 1, end_year: 4, extent: 3, place: 1}
+- !ruby/object:Event 
+  { name: 交流生奖学金, start_year: 5, end_year: 5.8, extent: 2, place: 1}
+- !ruby/object:Event 
+  { name: 国立交通大学, start_year: 5, end_year: 5.8, extent: 3, place: 3}
+- !ruby/object:Event 
+  { name: 哈尔滨工业大学：电子与信息工程学院, start_year: 0, end_year: 4.7, extent: 5, place: 3}
+- !ruby/object:Event 
+  { name: 哈尔滨工业大学, start_year: 6.3, end_year: 8, extent: 5, place: 3}
+- !ruby/object:Event 
+  { name: 接触C语言, start_year: 1, end_year: 2, extent: 2, place: 4}
+- !ruby/object:Event 
+  { name: Linux系统，Python，Ruby语言，Ruby on Rails框架, start_year: 4, end_year: 8, extent: 4, place: 4}
+- !ruby/object:Event 
+  { name: 微计机原理：C & Assembly, start_year: 2, end_year: 4, extent: 3, place: 5}
+- !ruby/object:Event 
+  { name: FPGA、ARM, start_year: 6, end_year: 7, extent: 2, place: 5}
+- !ruby/object:Event 
+  { name: 基于Zigbee的智能家居安防系统, start_year: 2, end_year: 4, extent: 2, place: 6}
+- !ruby/object:Event 
+  { name: 图像水印, start_year: 5, end_year: 5.8, extent: 1, place: 6} 
+- !ruby/object:Event 
+  { name: 毕业设计, start_year: 7, end_year: 8, extent: 1, place: 6}
