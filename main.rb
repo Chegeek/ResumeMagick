@@ -1,3 +1,5 @@
+#! usr/bin/env ruby
+
 puts "Drawing the first part..."
 require "./draw_interest.rb"
 puts "Drawing the second part..."
